@@ -5,12 +5,8 @@ def encode(password):
         encoded_password += encoded_digit
     return encoded_password
 
-def decode(encoded_password):
-    original_password = ""
-    for digit in encoded_password:
-        original_digit = str((int(digit) - 3) % 10)
-        original_password += original_digit
-    return original_password
+#def decode(encoded_password):
+
 
 def main():
     while True:
@@ -28,7 +24,7 @@ def main():
 
         elif option == "2":
 
-            print(f'The encoded password is {encoded_password}, and the original password is {password}.')
+            print(f'The encoded password is {encoded_password}, and the original password is {decode(encoded_password)}.')
         elif option == "3":
             break
         else:
