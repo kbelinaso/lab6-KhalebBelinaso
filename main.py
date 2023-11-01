@@ -1,17 +1,38 @@
-# This is a sample Python script.
+def encode(password):
+    encoded_password = ""
+    for digit in password:
+        encoded_digit = str((int(digit) + 3) % 10)
+        encoded_password += encoded_digit
+    return encoded_password
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def decode(encoded_password):
+    original_password = ""
+    for digit in encoded_password:
+        original_digit = str((int(digit) - 3) % 10)
+        original_password += original_digit
+    return original_password
 
+def main():
+    while True:
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        option = input("Please enter an option: ")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-    print('Hello')
+        if option == "1":
+            password = input("Please enter your password to encode: ")
+            encoded_password = encode(password)
+            print("Your password has been encoded and stored!")
 
+        elif option == "2":
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+            print(f'The encoded password is {encoded_password}, and the original password is {password}.')
+        elif option == "3":
+            break
+        else:
+            print("Invalid option. Please choose a valid option.")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
