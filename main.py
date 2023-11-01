@@ -5,8 +5,15 @@ def encode(password):
         encoded_password += encoded_digit
     return encoded_password
 
-#def decode(encoded_password):
-
+def decode(password):
+    passwordList = list(password)
+    for i in range(len(passwordList)):
+        passwordList[i] = int(passwordList[i]) - 3
+        if passwordList[i] < 0:
+            passwordList[i] = passwordList[i] + 10
+        passwordList[i] = str(passwordList[i])
+    passwordList = ''.join(passwordList)
+    return passwordList
 
 def main():
     while True:
